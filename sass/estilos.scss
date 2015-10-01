@@ -1,0 +1,9 @@
+// Colores
+$fondo:#111;
+$texto:#D1E7ED;
+
+// Mixins
+@import "mixins/mixins";
+// Librerias & Estilos
+@import "imports/normalize";
+@import "imports/main";

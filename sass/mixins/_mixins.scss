@@ -1,0 +1,32 @@
+@function progress($percent){
+	$deg: $percent / 100 * 180;
+	@return #{$deg}deg;
+	}
+
+@mixin circular-progress($percent,$skill,$color,$bgcolor){
+	$progress: progress($percent);
+	transform:rotate($progress);
+	background: linear-gradient(
+		0deg,
+		$color 50%,
+		rgba($color,.2) 50% 
+		);
+	&:before,
+	&:after{
+		color:$color;
+		}
+	&:before{
+		content:"#{$skill}";
+		background: $bgcolor content-box;
+		transform:rotate(-#{$progress});
+		text-transform: uppercase;
+		}
+	&:after{
+		content:"#{$percent}%";
+		background: linear-gradient(
+			transparent 50%,
+			$bgcolor 50%
+			);
+		transform: scale(1.1) rotate(-#{$progress});
+		}
+	}
